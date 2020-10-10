@@ -70,7 +70,7 @@ class LivrosController {
             livroDao.searchById(id)
                 .then(livro => 
                     resp.marko(
-                        require('../views/livros/form/form.marko'),
+                        templates.livros.form,
                         { livro }
                     )
                 )
@@ -90,7 +90,7 @@ class LivrosController {
 
     form() {
         return (req, res) => {
-            res.marko( require('../views/livros/form/form.marko'), { livro: {} });
+            res.marko( templates.livros.form, { livro: {} });
         }
     }
 }
