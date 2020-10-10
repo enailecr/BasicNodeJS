@@ -55,9 +55,9 @@
 }
 
 .rodape .redesSociais .compartilhar-facebook {
-    background-image: url('/estatico/imagens/facebook.png');
+    background-image: url('/static/imagens/facebook.png');
 }
 
 .rodape .redesSociais .compartilhar-twitter {
-    background-image: url('/estatico/imagens/twitter.png');
+    background-image: url('/static/imagens/twitter.png');
 }

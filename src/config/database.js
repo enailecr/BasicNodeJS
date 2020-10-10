@@ -56,8 +56,8 @@ bd.serialize(() => {
     bd.run(INSERIR_LIVRO_2);
 
     bd.each("SELECT * FROM usuarios", (err, usuario) => {
-        console.log('Usuario: ');
-        console.log(usuario);
+        // console.log('Usuario: ');
+        // console.log(usuario);
     });
 });
 
