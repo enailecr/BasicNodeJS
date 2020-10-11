@@ -13,24 +13,20 @@ module.exports = (app) => {
             passwordField: 'senha',
         },
         (email, senha, done) => {
-            console.log('busca banco')
             const usuarioDAO = new UsuarioDao(db);
             usuarioDAO.buscaPorEmail(email)
                 .then((user) => {
-                    console.log('achou usuario?');
                     if (!user || senha !== user.senha) {
                         return done(null, false, {
                             msg: 'Login e senha incorretos',
                         })
                     }
-                    console.log('achou usuario');
                     return done (null, user);
                 })
                 .catch(error => done(error, false));
         }
     ));
     passport.serializeUser((user, done) => {
-        console.log('serializar')
         const userSession = {
             name: user.nome_completo,
             email: user.email,
@@ -39,7 +35,6 @@ module.exports = (app) => {
     });
 
     passport.deserializeUser((userSession, done) => {
-        console.log('deserializar')
         done(null, userSession);
     });
 
@@ -51,7 +46,6 @@ module.exports = (app) => {
         resave: false,
         saveUninitialized: false,
     }));
-    console.log('sessao criada');
     app.use(passport.initialize());
     app.use(passport.session());
 
